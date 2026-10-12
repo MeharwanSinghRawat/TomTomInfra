@@ -1,0 +1,36 @@
+{
+  "properties": {
+    "displayName": "Require the Cost tag",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "description": "Enforces the presence of the Cost tag on supported resources.",
+    "metadata": {
+      "category": "Tagging",
+      "version": "1.0.0"
+    },
+    "parameters": {
+      "effect": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Effect",
+          "description": "Enable or disable enforcement of the Cost tag."
+        },
+        "allowedValues": [
+          "Deny",
+          "Audit",
+          "Disabled"
+        ],
+        "defaultValue": "Deny"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "field": "tags['Cost']",
+        "exists": "false"
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+  }
+}

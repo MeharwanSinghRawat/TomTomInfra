@@ -1,0 +1,36 @@
+{
+  "properties": {
+    "displayName": "Require the environment tag",
+    "policyType": "Custom",
+    "mode": "Indexed",
+    "description": "Enforces the presence of the environment tag on supported resources.",
+    "metadata": {
+      "category": "Tagging",
+      "version": "1.0.0"
+    },
+    "parameters": {
+      "effect": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Effect",
+          "description": "Enable or disable enforcement of the environment tag."
+        },
+        "allowedValues": [
+          "Deny",
+          "Audit",
+          "Disabled"
+        ],
+        "defaultValue": "Deny"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "field": "tags['environment']",
+        "exists": "false"
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+  }
+}
