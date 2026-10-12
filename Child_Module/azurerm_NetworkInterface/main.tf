@@ -29,5 +29,6 @@ resource "azurerm_network_interface" "nic" {
   tags = lookup(each.value, "tags", {
     environment = "dev"
     owner       = "mehar"
+    Cost        = "dev"
   })
 }

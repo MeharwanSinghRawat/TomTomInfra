@@ -19,5 +19,6 @@ resource "azurerm_storage_account" "sa" {
   tags = lookup(each.value, "tags", {
     environment = "dev"
     owner       = "mehar"
+    Cost        = "dev"
   })
 }

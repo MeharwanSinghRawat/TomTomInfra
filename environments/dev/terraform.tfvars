@@ -121,6 +121,7 @@ network_nic = {
     tags = {
       environment = "dev"
       owner       = "mehar"
+      Cost        = "dev"
     }
   }
   nic2 = {
@@ -133,6 +134,11 @@ network_nic = {
     vnet_name            = "spokevnet1"
     nsg_key              = "nsg2"
     enable_ip_forwarding = true
+    tags = {
+      environment = "dev"
+      owner       = "mehar"
+      Cost        = "dev"
+    }
   }
 }
 
@@ -336,10 +342,11 @@ storage_account = {
     account_tier             = "Standard"
     account_replication_type = "LRS"
     access_tier              = "Hot"
-    # tags = {
-    #   environment = "dev"
-    #   project     = "infra"
-    # }
+    tags = {
+      environment = "dev"
+      owner       = "mehar"
+      Cost        = "dev"
+    }
   }
 }
 

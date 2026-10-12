@@ -32,6 +32,11 @@ resource "azurerm_linux_virtual_machine" "vm" {
     version   = "latest"
   }
 
+  tags = lookup(each.value, "tags", {
+    environment = "dev"
+    owner       = "mehar"
+    Cost        = "dev"
+  })
 }
 
 

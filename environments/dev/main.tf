@@ -92,6 +92,7 @@ module "monitoring" {
 module "storage_account" {
   source          = "../../Child_Module/azurerm_storage_account"
   storage_account = var.storage_account
+  depends_on      = [module.resource_group]
 }
 
 # module "keyvaults" {
